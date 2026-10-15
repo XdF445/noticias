@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>Enfoque — Noticias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Enfoque, inicio"><span class="brand-mark">e</span><span>enfoque<span class="brand-dot">.</span></span></a>
+    <nav class="main-nav" aria-label="Navegación principal"><a class="nav-link active" href="#inicio">Portada</a><a class="nav-link" href="#noticias">Noticias</a></nav>
+    <div class="account-area"><span id="user-label" class="user-label"></span><button id="auth-open" class="button button-dark">Iniciar sesión <span>↗</span></button><button id="signout" class="button button-quiet hidden">Salir</button></div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow"><span class="live-dot"></span> INFORMACIÓN PARA ENTENDER LO QUE PASA</span><h1>Las noticias,<br><em>en contexto.</em></h1><p>Historias claras, relevantes y contadas con perspectiva. Mantente al día con lo que importa.</p><a class="button button-dark hero-button" href="#noticias">Explorar noticias <span>↓</span></a></div>
+      <div class="hero-art" aria-hidden="true"><div class="art-sun"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card"><span>EDICIÓN<br>DE HOY</span><strong>01</strong><i>◆</i></div><div class="art-caption">Una mirada<br>más amplia.</div></div>
+      <div class="hero-index"><span>01 / 03</span><span class="index-line"></span><span>LECTURA DIARIA</span></div>
+    </section>
+
+    <section class="news-section" id="noticias">
+      <div class="section-heading"><div><span class="eyebrow muted">LO MÁS RECIENTE</span><h2>En la conversación<span class="brand-dot">.</span></h2></div><span id="news-count" class="news-count">CARGANDO NOTICIAS</span></div>
+      <div id="category-list" class="category-list" aria-label="Filtrar por categoría"><button class="category-chip selected" data-category="all">Todo</button></div>
+      <div id="notice" class="notice hidden" role="status"></div>
+      <div id="news-grid" class="news-grid"><div class="loading-card">Preparando las historias<span class="loading-dots">•••</span></div></div>
+      <div id="editor-area" class="editor-area hidden">
+        <div class="editor-heading"><div><span class="eyebrow muted">PANEL EDITORIAL</span><h2>Publica una historia<span class="brand-dot">.</span></h2></div><span id="role-badge" class="role-badge"></span></div>
+        <form id="news-form" class="news-form">
+          <label>Título<input name="title" maxlength="160" required placeholder="Escribe un título claro"></label>
+          <label>Resumen<textarea name="summary" rows="2" maxlength="280" placeholder="Una frase para presentar la noticia"></textarea></label>
+          <label>Contenido<textarea name="content" rows="7" required placeholder="Desarrolla la noticia aquí..."></textarea></label>
+          <div class="form-row"><label>Categoría<select name="category" id="news-category" required></select></label><label>Imagen (URL)<input name="image_url" type="url" placeholder="https://..."></label></div>
+          <label class="checkbox-line"><input name="publish" type="checkbox"> Publicar ahora</label>
+          <button class="button button-dark" type="submit">Guardar noticia <span>↗</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#inicio"><span class="brand-mark">e</span><span>enfoque<span class="brand-dot">.</span></span></a><span>Noticias con contexto. Hecho para leer con calma.</span><span>© 2026 ENFOQUE</span></footer>
+
+  <dialog id="auth-dialog" class="auth-dialog"><form method="dialog"><button class="dialog-close" aria-label="Cerrar">×</button></form><span class="eyebrow muted">TU ESPACIO INFORMATIVO</span><h2 id="auth-title">Bienvenido<span class="brand-dot">.</span></h2><p id="auth-description">Inicia sesión para acceder a tu cuenta.</p><form id="auth-form" class="auth-form"><label id="name-field" class="hidden">Nombre<input name="display_name" autocomplete="name" placeholder="Tu nombre"></label><label>Correo electrónico<input name="email" type="email" autocomplete="email" required placeholder="tu@correo.com"></label><label>Contraseña<input name="password" type="password" minlength="6" autocomplete="current-password" required placeholder="Mínimo 6 caracteres"></label><button id="auth-submit" class="button button-dark" type="submit">Iniciar sesión <span>↗</span></button></form><button id="auth-toggle" class="text-button">¿No tienes cuenta? Regístrate</button><p id="auth-message" class="auth-message" role="status"></p></dialog>
+</body>
+</html>
